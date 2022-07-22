@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Add Booking</title>
+    <style>
+        #navDiv{
+
+            height: 100px; 
+            width:auto; 
+            background-color:rgb(165, 161, 125);
+            padding: 10px;
+            position: relative;
+
+        }
+        #mainBlock{
+            height: 500px;
+            width: 500px;
+            margin-top: 25px;
+            margin-left: 35%;
+            padding-top: 15px;
+        }
+        #heading{
+            height: auto;
+            width:40%; 
+            float: left; 
+            color: black;
+            padding-top: 2px;
+            padding-left: 40px;
+            font-size: larger;
+        }
+        
+        .navi{
+            padding: 15px;
+            background-color: lightgray;
+            color: black;
+        }
+        span{
+            
+            margin-top: 10px;
+            color: black;
+        }
+        .radio{
+            padding-left: 3px;
+            padding-right: 8px;
+        }
+        a{
+            color: black;
+        }
+        
+    </style>
+    
+</head>
+<body>
+
+    <div id="navDiv">
+        <span id="heading">
+            <h1>Vehicle Rental System</h1>
+        </span>
+        <div style="margin-top: 25px;">
+            <a href="{% url 'admin_app:dashboard' %}"><span class="navi">Dashboard</span></a>
+            <a href="{% url 'admin_app:bookingReport' %}"><span class="navi">Booking Report</span></a>
+            <a href="{% url 'admin_app:requisition' %}"><span class="navi">Requsition</span></a>
+            <a href="{% url 'admin_app:userView' %}"><span class="navi">User</span></a>
+            <a href="{% url 'admin_app:adminView' %}"><span class="navi">Admin</span></a>
+            <a href="{% url 'login_app:home' %}"><span class="navi">Logout</span></a>
+
+        </div> 
+        
+
+    </div>
+    
+    <div id="mainBlock">
+        <hr>
+        <h1>Add Booking</h1>
+        <hr>
+        <form method="POST" action="{% url 'addBooking' %}">
+            
+            <label for="type">Vehicle Type:</label>
+            <select name="type" id="vehicleType" style="width: 100px">
+                <option selected="selected" disabled>--Select--</option>
+                <option name="type" value="car">Car</option>
+                <option name="type" value="micro">MicroBus</option>
+                <option name="type" value="bike">Bike</option>
+                <option name="type" value="pickup">Pickup</option>
+                <option name="type" value="miniBus">Mini Bus</option>
+                <option name="type" value="bus">Bus</option>
+            </select>
+            <br><br>
+            <label for="vehicleName">Name</label>
+            <input class="form-control" type="text" name="vehicleName" placeholder="Vehicle Name..." required>
+            <br>
+            <label for="capacity">Capacity</label>
+            <input class="form-control" type="number" name="capacity" placeholder="How many passenger..." required>
+            <br>
+            <label for="regNum">Vehicle Registration Number</label>
+            <input class="form-control" type="number" name="regNum" placeholder="Enter vehicle number..." required>
+            <br>
+            <label for="cost">Cost</label>
+            <input class="form-control" type="number" name="cost" placeholder="Cost per day..." required>
+            <br>
+            <label style="padding-right: 20px;" for="vehicleCondition">Vehicle Condition: </label><br>
+            <input class="radio" type="radio" id="" name="vehicleCondition" value="1"><label class="radio"for="vehicleCondition">Very Bad</label>
+            <input class="radio" type="radio" id="" name="vehicleCondition" value="2"><label class="radio"for="vehicleCondition">Bad</label>
+            <input class="radio" type="radio" id="" name="vehicleCondition" value="3"><label class="radio"for="vehicleCondition">Normal</label>
+            <input class="radio" type="radio" id="" name="vehicleCondition" value="4"><label class="radio"for="vehicleCondition">Good</label>
+            <input class="radio" type="radio" id="" name="vehicleCondition" value="5"><label class="radio"for="vehicleCondition">Very Good</label>
+            <br><br>
+            <label for="bookingContact">Booking Contact</label>
+            <input class="form-control" type="number" name="bookingContact" placeholder="Booking Contact..." required>
+            <br>
+            <label for="description">Description</label>
+            <textarea class="form-control" name="description" id="" cols="65" rows="6" placeholder="Vehicle full description.."></textarea>
+            <br>
+            {% csrf_token %}
+            <br>
+            <input style="height:40px;width:120px; margin-left: 180px; background-color: darkgray;" type="submit" name="add" value="Add">
+            <br><br>
+        </form>
+    </div>
+
+    
+    
+</body>
+</html>

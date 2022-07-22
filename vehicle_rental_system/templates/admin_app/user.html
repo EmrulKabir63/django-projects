@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>User</title>
+    <style>
+        #navDiv{
+
+            height: 100px; 
+            width:auto; 
+            background-color:rgb(165, 161, 125);
+            padding: 10px;
+
+        }
+        
+        #heading{
+            height: auto;
+            width:40%; 
+            float: left; 
+            color: black;
+            padding-top: 2px;
+            padding-left: 40px;
+            font-size: larger;
+        }
+        #mainBlock{
+            height: 500px;
+            width: 500px;
+            margin-top: 50px;
+            margin-left: 35%;
+            padding-top: 15px;
+        }
+        .navi{
+            padding: 15px;
+            background-color: lightgray;
+            color: black;
+        }
+        span{
+            
+            margin-top: 10px;
+            color: black;
+        }
+        a{
+            color: black;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div id="navDiv">
+        <span id="heading">
+            <h1>Vehicle Rental System</h1>
+        </span>
+        <div style="margin-top: 25px;">
+            <a href="{% url 'admin_app:dashboard' %}"><span class="navi">Dashboard</span></a>
+            <a href="{% url 'admin_app:bookingReport' %}"><span class="navi">Booking Report</span></a>
+            <a href="{% url 'admin_app:requisition' %}"><span class="navi">Requsition</span></a>
+            <a href="{% url 'admin_app:userView' %}"><span class="navi">User</span></a>
+            <a href="{% url 'admin_app:adminView' %}"><span class="navi">Admin</span></a>
+            <a href="{% url 'login_app:home' %}"><span class="navi">Logout</span></a>
+
+        </div>
+        
+
+    </div>
+    
+    <div id="mainBlock">
+        <h1>user</h1>
+    </div>
+
+    
+    
+</body>
+</html>
